@@ -8,7 +8,7 @@ function NavBar() {
     <>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand as={Link} to="/lygi.web/public/">React-Bootstrap</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/lygi.web/public/">Lygi</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
