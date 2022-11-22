@@ -80,7 +80,13 @@ Route::post('/product_create', [ProductController::class, 'store']);
 Route::post('/product_update', [ProductController::class, 'update']);
 Route::post('/product_delete', [ProductController::class, 'destroy']);
 Route::get('/product_show', [ProductController::class, 'show']);
-Route::get('/product_codes', [ProductController::class, 'productCodes'])->middleware('auth:api');
+Route::get('/product_cars', [ProductController::class, 'productCars']);
+Route::get('/product_motorcycles', [ProductController::class, 'productMotorcycles']);
+Route::get('/product_planes', [ProductController::class, 'productPlanes']);
+Route::get('/product_ships', [ProductController::class, 'productShips']);
+Route::get('/product_trains', [ProductController::class, 'productTrains']);
+Route::get('/product_trucks', [ProductController::class, 'productTrucks']);
+Route::get('/product_vintages', [ProductController::class, 'productVintage']);
 
 Route::post('/productline_index', [ProductLineController::class, 'index']);
 Route::post('/productline_create', [ProductLineController::class, 'store']);

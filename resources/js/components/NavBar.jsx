@@ -24,22 +24,22 @@ function NavBar() {
             style={{ maxHeight: '100px' }}
             navbarScroll>
               <Nav.Link as={Link} to="/lygi.web/public/">Home</Nav.Link>
-              <Nav.Link as={Link} to="/lygi.web/public/cars/">Autos</Nav.Link>
-              <Nav.Link as={Link} to="/lygi.web/public/motorcycles">Motocicletas</Nav.Link>
-              <Nav.Link as={Link} to="/lygi.web/public/planes">Aviones</Nav.Link>
-              <Nav.Link as={Link} to="/lygi.web/public/ships">Barcos</Nav.Link>
-              <Nav.Link as={Link} to="/lygi.web/public/trains">Trenes</Nav.Link>
-              <Nav.Link as={Link} to="/lygi.web/public/trucks">Camiones</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/cars/">Cars</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/motorcycles">Motorcycles</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/planes">Planes</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/ships">Ships</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/trains">Trains</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/trucks">Trucks</Nav.Link>
               <Nav.Link as={Link} to="/lygi.web/public/vintage">Vintage</Nav.Link>
             </Nav>
             <Form className="d-flex">
             <Form.Control
               type="search"
-              placeholder="Busqueda"
+              placeholder="Search"
               className="me-2"
-              aria-label="Buscar"
+              aria-label="Search"
             />
-            <Button variant="outline-success">Buscar</Button>
+            <Button variant="outline-success">Search</Button>
           </Form>
           </Navbar.Collapse>
         </Container>

@@ -121,4 +121,92 @@ class ProductController extends Controller
         $Product = Product::find($request->productCode);
         $Product->delete();
     }
+
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function productCars()
+    {   
+        $productCars = [];
+        foreach( Product::all() as $prod ){
+            if ($prod->productLine == 'Classic Cars'){
+                array_push($productCars, $prod);
+            }
+        }
+        return $productCars;
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function productMotorcycles()
+    {   
+        $productMotorcycles = [];
+        foreach( Product::all() as $prod ){
+            if ($prod->productLine == 'Motorcycles'){
+                array_push($productMotorcycles, $prod);
+            }
+        }
+        return $productMotorcycles;
+    }
+
+    public function productPlanes()
+    {   
+        $productPlanes = [];
+        foreach( Product::all() as $prod ){
+            if ($prod->productLine == 'Planes'){
+                array_push($productPlanes, $prod);
+            }
+        }
+        return $productPlanes;
+    }
+
+    public function productShips()
+    {   
+        $productShips = [];
+        foreach( Product::all() as $prod ){
+            if ($prod->productLine == 'Ships'){
+                array_push($productShips, $prod);
+            }
+        }
+        return $productShips;
+    }
+
+    public function productTrains()
+    {   
+        $productTrains = [];
+        foreach( Product::all() as $prod ){
+            if ($prod->productLine == 'Trains'){
+                array_push($productTrains, $prod);
+            }
+        }
+        return $productTrains;
+    }
+
+    public function productTrucks()
+    {   
+        $productTrucks = [];
+        foreach( Product::all() as $prod ){
+            if ($prod->productLine == 'Trucks and Buses'){
+                array_push($productTrucks, $prod);
+            }
+        }
+        return $productTrucks;
+    }
+
+    public function productVintage()
+    {   
+        $productVintage = [];
+        foreach( Product::all() as $prod ){
+            if ($prod->productLine == 'Vintage Cars'){
+                array_push($productVintage, $prod);
+            }
+        }
+        return $productVintage;
+    }
 }
