@@ -1,4 +1,6 @@
 import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet, Link } from 'react-router-dom';
@@ -8,13 +10,37 @@ function NavBar() {
     <>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand as={Link} to="/lygi.web/public/">Lygi</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/lygi.web/public/">
+            <img 
+            alt = ''
+            src = 'http://localhost/lygi.web/resources/images/logo.svg'
+            width = '100'
+            height = '60'
+            className= 'd-inline-block align-top'/>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/lygi.web/public/example">Home</Nav.Link>
-              <Nav.Link as={Link} to="/lygi.web/public/first">Login</Nav.Link>
+            <Nav className="me-auto my-2 my-lg-0"
+            style={{ maxHeight: '100px' }}
+            navbarScroll>
+              <Nav.Link as={Link} to="/lygi.web/public/">Home</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/cars/">Autos</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/motorcycles">Motocicletas</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/planes">Aviones</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/ships">Barcos</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/trains">Trenes</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/trucks">Camiones</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/vintage">Vintage</Nav.Link>
             </Nav>
+            <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Busqueda"
+              className="me-2"
+              aria-label="Buscar"
+            />
+            <Button variant="outline-success">Buscar</Button>
+          </Form>
           </Navbar.Collapse>
         </Container>
       </Navbar>

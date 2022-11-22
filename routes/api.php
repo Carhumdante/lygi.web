@@ -80,7 +80,7 @@ Route::post('/product_create', [ProductController::class, 'store']);
 Route::post('/product_update', [ProductController::class, 'update']);
 Route::post('/product_delete', [ProductController::class, 'destroy']);
 Route::get('/product_show', [ProductController::class, 'show']);
-Route::get('/product_codes', [ProductController::class, 'productCodes']);
+Route::get('/product_codes', [ProductController::class, 'productCodes'])->middleware('auth:api');
 
 Route::post('/productline_index', [ProductLineController::class, 'index']);
 Route::post('/productline_create', [ProductLineController::class, 'store']);
