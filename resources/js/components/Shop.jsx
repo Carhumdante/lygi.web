@@ -32,6 +32,7 @@ function Shop() {
     }, [])
 
     return (
+        <>
         <Container>
             <Col>
                 <Card className="text-center">
@@ -63,10 +64,8 @@ function Shop() {
                     {!show && <Button size = 'lg' onClick={() => setShow(true)}>Buy</Button>}
                 </Card>
             </Col>
-
-
-            
         </Container >
+        </>
     )
 }
 

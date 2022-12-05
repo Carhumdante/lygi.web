@@ -31,6 +31,7 @@ function NavBar() {
               <Nav.Link as={Link} to="/lygi.web/public/trains">Trains</Nav.Link>
               <Nav.Link as={Link} to="/lygi.web/public/trucks">Trucks</Nav.Link>
               <Nav.Link as={Link} to="/lygi.web/public/vintage">Vintage</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/logreg">Log/Reg</Nav.Link>
             </Nav>
             <Form className="d-flex">
             <Form.Control

@@ -92,3 +92,4 @@ Route::post('/productline_index', [ProductLineController::class, 'index']);
 Route::post('/productline_create', [ProductLineController::class, 'store']);
 Route::post('/productline_update', [ProductLineController::class, 'update']);
 Route::post('/productline_delete', [ProductLineController::class, 'destroy']);
+Route::get('/productline_show', [ProductLineController::class, 'show']);

@@ -10,6 +10,7 @@ import Trains from "./Trains";
 import Trucks from "./Trucks";
 import Vintage from "./Vintage";
 import Shop from "./Shop";
+import LogReg from "./login-register";
 
 export default function App(){
     return (
@@ -34,6 +35,7 @@ export default function App(){
                         <Route path="vintage" element={<Vintage/>}/>
                         <Route path="vintage/:product" element={<Shop/>}/>
                         <Route path="shop" element={<Shop/>}/>
+                        <Route path="logreg" element={<LogReg/>}/>
                     </Route>
                 </Routes>
             </BrowserRouter>
