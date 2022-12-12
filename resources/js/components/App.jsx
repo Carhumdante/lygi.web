@@ -10,32 +10,38 @@ import Trains from "./Trains";
 import Trucks from "./Trucks";
 import Vintage from "./Vintage";
 import Shop from "./Shop";
-import LogReg from "./login-register";
+import Login from "./login";
+import Cart from "./Cart";
+import Checkout from "./Checkout";
+import Register from "./Register";
 
-export default function App(){
+export default function App() {
     return (
-        <div className = "App">
+        <div className="App">
             <BrowserRouter>
                 <Routes>
-                    <Route path="/lygi.web/public/" element={<NavBar/>}>
-                        <Route index element={<Home/>}/>
-                        <Route path="home" element={<Home/>}/>
-                        <Route path="cars" element={<Cars/>}/>
-                        <Route path="cars/:product" element={<Shop/>}/>
-                        <Route path="motorcycles" element={<Motorcycles/>}/>
-                        <Route path="motorcycles/:product" element={<Shop/>}/>
-                        <Route path="planes" element={<Planes/>}/>
-                        <Route path="planes/:product" element={<Shop/>}/>
-                        <Route path="ships" element={<Ships/>}/>
-                        <Route path="ships/:product" element={<Shop/>}/>
-                        <Route path="trains" element={<Trains/>}/>
-                        <Route path="trains/:product" element={<Shop/>}/>
-                        <Route path="trucks" element={<Trucks/>}/>
-                        <Route path="trucks/:product" element={<Shop/>}/>
-                        <Route path="vintage" element={<Vintage/>}/>
-                        <Route path="vintage/:product" element={<Shop/>}/>
-                        <Route path="shop" element={<Shop/>}/>
-                        <Route path="logreg" element={<LogReg/>}/>
+                    <Route path="/lygi.web/public/" element={<NavBar />}>
+                        <Route index element={<Home />} />
+                        <Route path="/lygi.web/public/home/" element={<Home />} />
+                        <Route path="/lygi.web/public/cars" element={<Cars />} />
+                        <Route path="/lygi.web/public/cars/:product" element={<Shop />} />
+                        <Route path="/lygi.web/public/motorcycles" element={<Motorcycles />} />
+                        <Route path="/lygi.web/public/motorcycles/:product" element={<Shop />} />
+                        <Route path="/lygi.web/public/planes" element={<Planes />} />
+                        <Route path="/lygi.web/public/planes/:product" element={<Shop />} />
+                        <Route path="/lygi.web/public/ships" element={<Ships />} />
+                        <Route path="/lygi.web/public/ships/:product" element={<Shop />} />
+                        <Route path="/lygi.web/public/trains" element={<Trains />} />
+                        <Route path="/lygi.web/public/trains/:product" element={<Shop />} />
+                        <Route path="/lygi.web/public/trucks" element={<Trucks />} />
+                        <Route path="/lygi.web/public/trucks/:product" element={<Shop />} />
+                        <Route path="/lygi.web/public/vintage" element={<Vintage />} />
+                        <Route path="/lygi.web/public/vintage/:product" element={<Shop />} />
+                        <Route path="/lygi.web/public/shop" element={<Shop />} />
+                        <Route path="/lygi.web/public/login" element={<Login />} />
+                        <Route path="/lygi.web/public/checkout" element={<Checkout />} />
+                        <Route path="/lygi.web/public/cart" element={<Cart />} />
+                        <Route path="/lygi.web/public/register" element={<Register />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

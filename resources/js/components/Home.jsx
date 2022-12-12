@@ -72,12 +72,6 @@ function Home() {
             <link rel="stylesheet" href="http://localhost/lygi.web/resources/css/owl.carousel.min.css" type="text/css" />
             <link rel="stylesheet" href="http://localhost/lygi.web/resources/css/slicknav.min.css" type="text/css" />
             <link rel="stylesheet" href="http://localhost/lygi.web/resources/css/style.css" type="text/css" />
-            {/*Start of Tawk.to Script*/}
-            {/*End of Tawk.to Script*/}
-            {/* Page Preloder */}
-            {/* <div id="preloder">
-          <div className="loader" />
-        </div> */}
             {/* Categories Section Begin */}
             <section className="categories">
                 <div className="container-fluid">

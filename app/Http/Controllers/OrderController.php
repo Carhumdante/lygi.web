@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -23,9 +24,14 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function last()
     {
-        //
+        $orderNumber = [];
+        foreach (Order::all() as $ord) {
+            array_push($orderNumber, $ord->orderNumber);
+        }
+        $last = max($orderNumber);
+        return $last;
     }
 
     /**
@@ -37,9 +43,6 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $order = Order::create([
-            'orderNumber' => $request->orderNumber,
-            'orderDate' => $request->orderDate,
-            'requiredDate' => $request->requiredDate,
             'shippedDate' => $request->shippedDate,
             'status' => $request->status,
             'comments' => $request->comments,
@@ -98,9 +101,9 @@ class OrderController extends Controller
      */
     public function destroy(Request $request)
     {
-        $order=Order::find($request->orderNumber);
+        $order = Order::find($request->orderNumber);
         $order->delete();
-        $order=Order::all();
+        $order = Order::all();
         return $order;
     }
 }

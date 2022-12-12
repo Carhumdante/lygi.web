@@ -5,7 +5,8 @@ import { Button, Form, Container, Row, Col, Card } from 'react-bootstrap';
 function Example() {
     const [formValue, setformValue] = useState({
         email: '',
-        password: ''
+        password: '',
+        name: ''
     })
     const [email, setEmail] = useState('')
     const [users, setUsers] = useState([])
