@@ -128,6 +128,15 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function productNew()
+    {   
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function productCars()
     {   
         $productCars = [];

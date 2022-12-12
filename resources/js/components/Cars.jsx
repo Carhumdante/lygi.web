@@ -12,13 +12,12 @@ function Cars() {
             {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                    'Accept': 'application/json'
+                    'Accept': 'application/json',
                 }
             }
         ).then(response => {
             if (response.status == 200) {
                 console.log(response.data)
-                //setEmail(response.data)
                 setcars(response.data)
             }
         }).catch(error => {

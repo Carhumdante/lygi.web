@@ -17,4 +17,8 @@ class Productline extends Model
     ];
 
     protected $primaryKey = 'productLine';
+
+    protected $casts = [
+        'productLine' => 'string',
+    ];
 }

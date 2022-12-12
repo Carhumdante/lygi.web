@@ -13,6 +13,8 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderdetailController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductLineController;
+use App\Http\Controllers\CookieController;
+use App\Http\Controllers\CartController;
 
 
 /*
@@ -69,9 +71,11 @@ Route::post('/order_index', [OrderController::class, 'index']);
 Route::post('/order_create', [OrderController::class, 'store']);
 Route::post('/order_update', [OrderController::class, 'update']);
 Route::post('/order_delete', [OrderController::class, 'destroy']);
+Route::get('/order_last', [OrderController::class, 'last']);
+
 
 Route::post('/orderdetail_index', [OrderdetailController::class, 'index']);
-Route::post('/orderdetail_create', [OrderdetailController::class, 'store']);
+Route::post('/orderdetail_create', [OrderdetailController::class, 'create']);
 Route::post('/orderdetail_update', [OrderdetailController::class, 'update']);
 Route::post('/orderdetail_delete', [OrderdetailController::class, 'destroy']);
 
@@ -92,3 +96,11 @@ Route::post('/productline_index', [ProductLineController::class, 'index']);
 Route::post('/productline_create', [ProductLineController::class, 'store']);
 Route::post('/productline_update', [ProductLineController::class, 'update']);
 Route::post('/productline_delete', [ProductLineController::class, 'destroy']);
+Route::get('/productline_show', [ProductLineController::class, 'show']);
+
+Route::post('/cookie_set', [CookieController::class, 'setCookie']);
+Route::post('/cookie_get', [CookieController::class, 'getCookie']);
+Route::post('/cookie_delete', [CookieController::class, 'deleteCookie']);
+
+Route::post('/cart_create', [CartController::class, 'create']);
+Route::post('/cart_get', [CartController::class, 'select']);
