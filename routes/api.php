@@ -104,3 +104,4 @@ Route::post('/cookie_delete', [CookieController::class, 'deleteCookie']);
 
 Route::post('/cart_create', [CartController::class, 'create']);
 Route::post('/cart_get', [CartController::class, 'select']);
+Route::post('/cart_delete', [CartController::class, 'destroy']);
