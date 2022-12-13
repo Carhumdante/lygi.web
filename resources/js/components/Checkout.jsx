@@ -295,7 +295,7 @@ function Checkout() {
                                             {carts.map((cart) =>
                                             (
                                                 <>
-                                                    <li>{cart.productCode} <span>$ {cart.priceEach}</span></li>
+                                                    <li>{cart.productName} <span>$ {cart.priceEach}</span></li>
                                                     <h5 hidden>{subtotal = subtotal + parseFloat(cart.priceEach)}</h5>
                                                 </>
                                             ))}

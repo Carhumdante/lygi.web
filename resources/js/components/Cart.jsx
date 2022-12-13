@@ -86,7 +86,7 @@ function Cart() {
                                             <tr>
                                                 <td className="cart__cart__item">
                                                     <div className="cart__cart__item__title">
-                                                        <h6>{cart.productCode}</h6>
+                                                        <h6>{cart.productName}</h6>
                                                     </div>
                                                 </td>
                                                 <td className="cart__price">{cart.priceEach}</td>

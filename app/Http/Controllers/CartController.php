@@ -36,8 +36,10 @@ class CartController extends Controller
             'id' => $request->id,
             'productCode' => $request->productCode,
             'quantityOrdered' => $request->quantityOrdered,
+            'productName' => $request->productName,
             'priceEach' => $request->priceEach,
             'subtotal' => $request->subtotal,
+            'image_name' => $request->image_name
         ]);
         echo $Cart;
     }

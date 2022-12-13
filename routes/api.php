@@ -72,6 +72,7 @@ Route::post('/order_create', [OrderController::class, 'store']);
 Route::post('/order_update', [OrderController::class, 'update']);
 Route::post('/order_delete', [OrderController::class, 'destroy']);
 Route::get('/order_last', [OrderController::class, 'last']);
+Route::post('/order_customer', [OrderController::class, 'getOrderFromCustomer']);
 
 
 Route::post('/orderdetail_index', [OrderdetailController::class, 'index']);

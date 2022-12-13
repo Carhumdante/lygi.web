@@ -35,6 +35,7 @@ function NavBar() {
               <Nav.Link as={Link} to="/lygi.web/public/login">Login</Nav.Link>
               <Nav.Link as={Link} to="/lygi.web/public/cart">Cart</Nav.Link>
               <Nav.Link as={Link} to="/lygi.web/public/checkout">Checkout</Nav.Link>
+              <Nav.Link as={Link} to="/lygi.web/public/crud">CRUD</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

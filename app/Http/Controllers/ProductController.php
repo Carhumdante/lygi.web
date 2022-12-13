@@ -72,8 +72,8 @@ class ProductController extends Controller
      */
     public function show()
     {
-        $Product = Product::all();
-        return $Product;
+        $Product = Product::all()->sortBy("productCode");
+        return $Product->values()->all();
     }
 
     /**
