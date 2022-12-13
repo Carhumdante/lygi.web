@@ -50,6 +50,7 @@ function Shop() {
         formData.append("id", idcart)
         formData.append("productCode", shop.productCode)
         formData.append("priceEach", shop.buyPrice)
+        formData.append("productName", shop.productName)
         axios.post("http://localhost/lygi.web/public/api/cart_create",
             formData,
             {
@@ -93,7 +94,7 @@ function Shop() {
         <>
             <Container>
                 <Col>
-                    <Card className="text-center">
+                    <Card className="text-center" border="primary">
                         <Card.Header>{shop.productCode}</Card.Header>
                         <Card.Img
                             variant="top"

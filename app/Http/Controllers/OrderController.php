@@ -68,9 +68,12 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function getOrderFromCustomer(Request $request)
     {
-        //
+        $Orderdetail = DB::table('orders')
+            ->where('customerNumber', '=', $request->customerNumber)
+            ->get();
+        return $Orderdetail;
     }
 
     /**

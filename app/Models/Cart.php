@@ -15,6 +15,8 @@ class Cart extends Model
         'quantityOrdered',
         'priceEach',
         'subtotal',
+        'productName',
+        'image_name'
     ];
 
     protected $primaryKey = 'id';

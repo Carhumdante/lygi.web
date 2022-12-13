@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Form, Container, Tabs, Tab, Nav } from 'react-bootstrap';
+import { Button, Form, Toast } from 'react-bootstrap';
 
 function Checkout() {
 
-    const [idcart, setID] = useState()
-    const [carts, setcart] = useState([])
-    const [lastOrd, setLastOrd] = useState()
+    const [show, setShow] = useState(false);
+    const toggleShow = () => setShow(!show);
+    const [idcart, setID] = useState();
+    const [carts, setcart] = useState([]);
+    const [lastOrd, setLastOrd] = useState();
 
     const [formValue, setformValue] = useState({
         FirstName: '',
@@ -57,25 +59,10 @@ function Checkout() {
         })
 
 
-        //Obtenemos el ultimo orderNumber para crear el proximo
-        axios.get("http://localhost/lygi.web/public/api/order_last",
-            {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    'Accept': 'application/json'
-                }
-            }
-        ).then(response => {
-            if (response.status == 200) {
-                setLastOrd(response.data)
-            }
-        }).catch(error => {
-            console.log(error)
-        })
 
         //Creamos la nueva Orden
         const orderData = new FormData()
-        orderData.append("orderNumber", lastOrd+1)
+        orderData.append("orderNumber", lastOrd + 1)
         orderData.append("customerNumber", idcart)
         axios.post("http://localhost/lygi.web/public/api/order_create",
             orderData,
@@ -88,6 +75,7 @@ function Checkout() {
         ).then(response => {
             if (response.status == 200) {
                 console.log(response.data)
+                setShow(true)
             }
         }).catch(error => {
             console.log(error)
@@ -97,7 +85,7 @@ function Checkout() {
         carts.map(cart => (
             axios.post("http://localhost/lygi.web/public/api/orderdetail_create",
                 cartData = {
-                    "orderNumber": lastOrd+1,
+                    "orderNumber": lastOrd + 1,
                     "productCode": cart.productCode,
                     "quantityOrdered": 1,
                     "priceEach": cart.priceEach
@@ -116,6 +104,42 @@ function Checkout() {
                 console.log(error)
             })
         ));
+
+        //Delete product
+        axios.post("http://localhost/lygi.web/public/api/product_delete",
+            carts,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Accept': 'application/json'
+                }
+            }
+        ).then(response => {
+            if (response.status == 200) {
+                console.log(response.data)
+            }
+        }).catch(error => {
+            console.log(error)
+        })
+
+        //DeleteCart
+        const deleteCart = new FormData()
+        deleteCart.append("id", idcart)
+        axios.post("http://localhost/lygi.web/public/api/cart_delete",
+            deleteCart,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Accept': 'application/json'
+                }
+            }
+        ).then(response => {
+            if (response.status == 200) {
+                console.log(response.data)
+            }
+        }).catch(error => {
+            console.log(error)
+        })
 
     }
 
@@ -155,12 +179,37 @@ function Checkout() {
         }).catch(error => {
             console.log(error)
         })
+
+        //Obtenemos el ultimo orderNumber para crear el proximo
+        axios.get("http://localhost/lygi.web/public/api/order_last",
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Accept': 'application/json'
+                }
+            }
+        ).then(response => {
+            if (response.status == 200) {
+                setLastOrd(response.data)
+            }
+        }).catch(error => {
+            console.log(error)
+        })
     }, [idcart])
 
 
 
     return (
         <>
+            {carts.map(cart => (
+                <Toast show={show} onClose={toggleShow}>
+                    <Toast.Header>
+                        <strong className="me-auto">Orded Added!!</strong>
+                        <small>Just Now</small>
+                    </Toast.Header>
+                    <Toast.Body> OrderNumber: {lastOrd + 1} productCode: {cart.productCode}</Toast.Body>
+                </Toast>))
+            }
             {/* Google Font */}
             <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet" />
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -246,7 +295,7 @@ function Checkout() {
                                             {carts.map((cart) =>
                                             (
                                                 <>
-                                                    <li>{cart.productCode} <span>$ {cart.priceEach}</span></li>
+                                                    <li>{cart.productName} <span>$ {cart.priceEach}</span></li>
                                                     <h5 hidden>{subtotal = subtotal + parseFloat(cart.priceEach)}</h5>
                                                 </>
                                             ))}

@@ -14,6 +14,7 @@ import Login from "./login";
 import Cart from "./Cart";
 import Checkout from "./Checkout";
 import Register from "./Register";
+import CRUD from "./Product";
 
 export default function App() {
     return (
@@ -42,6 +43,7 @@ export default function App() {
                         <Route path="/lygi.web/public/checkout" element={<Checkout />} />
                         <Route path="/lygi.web/public/cart" element={<Cart />} />
                         <Route path="/lygi.web/public/register" element={<Register />} />
+                        <Route path="/lygi.web/public/crud" element={<CRUD />} />
                     </Route>
                 </Routes>
             </BrowserRouter>

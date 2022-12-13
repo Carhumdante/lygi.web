@@ -24,9 +24,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function productCodes()
-    {   
+    {
         $productCodes = [];
-        foreach( Product::all() as $prod ){
+        foreach (Product::all() as $prod) {
             array_push($productCodes, $prod->productCode);
         }
         return $productCodes;
@@ -54,12 +54,12 @@ class ProductController extends Controller
             'productCode' => $request->productCode,
             'productName' => $request->productName,
             'productLine' => $request->productLine,
-            'productScale' =>$request->productScale,
-            'productVendor'=>$request ->productVendor,
-            'productDescription' =>$request->productDescription,
-            'quantityInStock' =>$request->quantityInStock,
-            'buyPrice'=>$request->buyPrice,
-            'MSRP'=>$request->MSRP
+            'productScale' => $request->productScale,
+            'productVendor' => $request->productVendor,
+            'productDescription' => $request->productDescription,
+            'quantityInStock' => $request->quantityInStock,
+            'buyPrice' => $request->buyPrice,
+            'MSRP' => $request->MSRP
         ]);
         echo $Product;
     }
@@ -72,8 +72,8 @@ class ProductController extends Controller
      */
     public function show()
     {
-        $Product = Product::all();
-        return $Product;
+        $Product = Product::all()->sortBy("productCode");
+        return $Product->values()->all();
     }
 
     /**
@@ -118,8 +118,12 @@ class ProductController extends Controller
      */
     public function destroy(Request $request)
     {
-        $Product = Product::find($request->productCode);
-        $Product->delete();
+        foreach ($request as $prod) {
+            $Product = Product::find($prod->productCode);
+            $Product->quantityInStock = ($Product->quantityInStock)-1;
+            $Product->save();
+            return $Product;
+        }
     }
 
 
@@ -129,7 +133,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function productNew()
-    {   
+    {
     }
 
     /**
@@ -138,10 +142,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function productCars()
-    {   
+    {
         $productCars = [];
-        foreach( Product::all() as $prod ){
-            if ($prod->productLine == 'Classic Cars'){
+        foreach (Product::all() as $prod) {
+            if ($prod->productLine == 'Classic Cars') {
                 array_push($productCars, $prod);
             }
         }
@@ -154,10 +158,10 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function productMotorcycles()
-    {   
+    {
         $productMotorcycles = [];
-        foreach( Product::all() as $prod ){
-            if ($prod->productLine == 'Motorcycles'){
+        foreach (Product::all() as $prod) {
+            if ($prod->productLine == 'Motorcycles') {
                 array_push($productMotorcycles, $prod);
             }
         }
@@ -165,10 +169,10 @@ class ProductController extends Controller
     }
 
     public function productPlanes()
-    {   
+    {
         $productPlanes = [];
-        foreach( Product::all() as $prod ){
-            if ($prod->productLine == 'Planes'){
+        foreach (Product::all() as $prod) {
+            if ($prod->productLine == 'Planes') {
                 array_push($productPlanes, $prod);
             }
         }
@@ -176,10 +180,10 @@ class ProductController extends Controller
     }
 
     public function productShips()
-    {   
+    {
         $productShips = [];
-        foreach( Product::all() as $prod ){
-            if ($prod->productLine == 'Ships'){
+        foreach (Product::all() as $prod) {
+            if ($prod->productLine == 'Ships') {
                 array_push($productShips, $prod);
             }
         }
@@ -187,10 +191,10 @@ class ProductController extends Controller
     }
 
     public function productTrains()
-    {   
+    {
         $productTrains = [];
-        foreach( Product::all() as $prod ){
-            if ($prod->productLine == 'Trains'){
+        foreach (Product::all() as $prod) {
+            if ($prod->productLine == 'Trains') {
                 array_push($productTrains, $prod);
             }
         }
@@ -198,10 +202,10 @@ class ProductController extends Controller
     }
 
     public function productTrucks()
-    {   
+    {
         $productTrucks = [];
-        foreach( Product::all() as $prod ){
-            if ($prod->productLine == 'Trucks and Buses'){
+        foreach (Product::all() as $prod) {
+            if ($prod->productLine == 'Trucks and Buses') {
                 array_push($productTrucks, $prod);
             }
         }
@@ -209,10 +213,10 @@ class ProductController extends Controller
     }
 
     public function productVintage()
-    {   
+    {
         $productVintage = [];
-        foreach( Product::all() as $prod ){
-            if ($prod->productLine == 'Vintage Cars'){
+        foreach (Product::all() as $prod) {
+            if ($prod->productLine == 'Vintage Cars') {
                 array_push($productVintage, $prod);
             }
         }

@@ -36,8 +36,10 @@ class CartController extends Controller
             'id' => $request->id,
             'productCode' => $request->productCode,
             'quantityOrdered' => $request->quantityOrdered,
+            'productName' => $request->productName,
             'priceEach' => $request->priceEach,
             'subtotal' => $request->subtotal,
+            'image_name' => $request->image_name
         ]);
         echo $Cart;
     }
@@ -82,8 +84,9 @@ class CartController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        $cart = Cart::find($request->id);
+        $cart->delete();
     }
 }

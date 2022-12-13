@@ -72,6 +72,7 @@ Route::post('/order_create', [OrderController::class, 'store']);
 Route::post('/order_update', [OrderController::class, 'update']);
 Route::post('/order_delete', [OrderController::class, 'destroy']);
 Route::get('/order_last', [OrderController::class, 'last']);
+Route::post('/order_customer', [OrderController::class, 'getOrderFromCustomer']);
 
 
 Route::post('/orderdetail_index', [OrderdetailController::class, 'index']);
@@ -104,3 +105,4 @@ Route::post('/cookie_delete', [CookieController::class, 'deleteCookie']);
 
 Route::post('/cart_create', [CartController::class, 'create']);
 Route::post('/cart_get', [CartController::class, 'select']);
+Route::post('/cart_delete', [CartController::class, 'destroy']);
