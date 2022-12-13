@@ -59,21 +59,6 @@ function Checkout() {
         })
 
 
-        //Obtenemos el ultimo orderNumber para crear el proximo
-        axios.get("http://localhost/lygi.web/public/api/order_last",
-            {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    'Accept': 'application/json'
-                }
-            }
-        ).then(response => {
-            if (response.status == 200) {
-                setLastOrd(response.data)
-            }
-        }).catch(error => {
-            console.log(error)
-        })
 
         //Creamos la nueva Orden
         const orderData = new FormData()
@@ -119,6 +104,23 @@ function Checkout() {
                 console.log(error)
             })
         ));
+
+        //Delete product
+        axios.post("http://localhost/lygi.web/public/api/product_delete",
+            carts,
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Accept': 'application/json'
+                }
+            }
+        ).then(response => {
+            if (response.status == 200) {
+                console.log(response.data)
+            }
+        }).catch(error => {
+            console.log(error)
+        })
 
         //DeleteCart
         const deleteCart = new FormData()
@@ -177,6 +179,22 @@ function Checkout() {
         }).catch(error => {
             console.log(error)
         })
+
+        //Obtenemos el ultimo orderNumber para crear el proximo
+        axios.get("http://localhost/lygi.web/public/api/order_last",
+            {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Accept': 'application/json'
+                }
+            }
+        ).then(response => {
+            if (response.status == 200) {
+                setLastOrd(response.data)
+            }
+        }).catch(error => {
+            console.log(error)
+        })
     }, [idcart])
 
 
@@ -189,7 +207,7 @@ function Checkout() {
                         <strong className="me-auto">Orded Added!!</strong>
                         <small>Just Now</small>
                     </Toast.Header>
-                    <Toast.Body> OrderNumber: {lastOrd+1} productCode: {cart.productCode}</Toast.Body>
+                    <Toast.Body> OrderNumber: {lastOrd + 1} productCode: {cart.productCode}</Toast.Body>
                 </Toast>))
             }
             {/* Google Font */}
